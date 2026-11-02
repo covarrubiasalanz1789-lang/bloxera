@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f7">
   <title>BLOXERA</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       background: #e3e3e3;
@@ -13,77 +16,99 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
     }
-    header {
+    a {
+      color: #0055aa;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .rbx-header {
       background: #f7f7f7;
-      border-bottom: 1px solid #c7c7c7;
+      border-bottom: 1px solid #ccc;
+      min-height: 48px;
     }
     .navbar {
-      max-width: 1100px;
-      margin: auto;
+      max-width: 1200px;
       min-height: 48px;
+      margin: auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .brand {
+      color: #393b3d;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 24px;
-      padding: 8px 14px;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #393b3d;
-      text-decoration: none;
-      letter-spacing: -1px;
-    }
-    nav {
-      display: flex;
-      gap: 18px;
       flex: 1;
     }
-    a { color: #0055aa; text-decoration: none; }
-    nav a { color: #393b3d; }
-    .account {
+    .nav-links a {
+      color: #393b3d;
+    }
+    .account-links {
       display: flex;
+      align-items: center;
       gap: 8px;
     }
-    .button {
+    .btn {
       display: inline-block;
-      padding: 8px 15px;
-      border: 1px solid #aaa;
+      padding: 8px 16px;
+      border: 1px solid #b8b8b8;
       border-radius: 3px;
       background: #f7f7f7;
       color: #393b3d;
+      font-size: 14px;
       cursor: pointer;
     }
-    .button.blue {
+    .btn-primary {
       background: #00a2ff;
       border-color: #0088d4;
-      color: white;
+      color: #fff;
     }
-    main {
+    .btn:hover {
+      filter: brightness(.97);
+      text-decoration: none;
+    }
+    .container {
+      width: 100%;
       max-width: 1100px;
       margin: 24px auto;
-      padding: 0 14px;
+      padding: 0 16px;
     }
     .panel {
-      background: white;
+      background: #fff;
       border: 1px solid #c7c7c7;
       border-radius: 3px;
-      padding: 22px;
-      margin-bottom: 18px;
-    }
-    h1 { font-size: 28px; margin: 0 0 10px; }
-    h2 {
-      font-size: 19px;
-      font-weight: normal;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
+      margin-bottom: 20px;
+      padding: 20px;
     }
     .welcome {
       text-align: center;
-      padding: 42px 20px;
+      padding: 38px 20px;
     }
-    .welcome p {
-      color: #666;
-      line-height: 1.6;
+    h1 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      font-weight: normal;
+    }
+    h2 {
+      margin: 0 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 20px;
+      font-weight: normal;
+    }
+    .muted {
+      color: #727272;
+      line-height: 1.5;
     }
     .actions {
       display: flex;
@@ -96,106 +121,139 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
     }
-    .game {
+    .game-card {
+      min-width: 0;
       border: 1px solid #ddd;
-      border-radius: 3px;
-      overflow: hidden;
-      background: #fafafa;
+      background: #fff;
     }
-    .game-image {
-      height: 110px;
-      background: #d6d6d6;
-      display: grid;
-      place-items: center;
+    .game-thumb {
+      aspect-ratio: 1.45 / 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e5e5e5;
+      color: #777;
+    }
+    .game-details {
+      padding: 10px;
+    }
+    .game-details p {
+      margin-bottom: 0;
       color: #777;
       font-size: 12px;
     }
-    .game-info { padding: 10px; }
-    .game-info p { color: #777; font-size: 12px; }
+    .section-link {
+      float: right;
+      font-size: 13px;
+    }
     footer {
-      text-align: center;
-      color: #777;
-      padding: 24px 12px;
+      max-width: 1100px;
+      margin: 30px auto 0;
+      padding: 20px 16px;
       border-top: 1px solid #ccc;
+      color: #777;
       font-size: 12px;
+      text-align: center;
     }
     @media (max-width: 650px) {
-      .navbar { flex-wrap: wrap; gap: 12px; }
-      nav { order: 3; flex-basis: 100%; gap: 15px; }
-      .account { margin-left: auto; }
-      .game-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .panel { padding: 15px; }
+      .navbar {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .nav-links {
+        order: 3;
+        flex-basis: 100%;
+        gap: 18px;
+        overflow-x: auto;
+      }
+      .account-links {
+        margin-left: auto;
+      }
+      .game-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .container {
+        margin-top: 14px;
+      }
+      .panel {
+        padding: 14px;
+      }
     }
   </style>
 </head>
-<body>
-  <header>
+<body class="light-theme">
+  <header class="rbx-header">
     <div class="navbar">
-      <a class="logo" href="#">BLOXERA</a>
-      <nav>
+      <a class="brand" href="/">BLOXERA</a>
+      <nav class="nav-links">
         <a href="#games">Games</a>
         <a href="#catalog">Catalog</a>
         <a href="#community">Community</a>
       </nav>
-      <div class="account">
-        <button class="button" onclick="alert('Login will be connected next.')">Login</button>
-        <button class="button blue" onclick="alert('Sign up will be connected next.')">Sign Up</button>
+      <div class="account-links">
+        <a class="btn" href="/login">Login</a>
+        <a class="btn btn-primary" href="/signup">Sign Up</a>
       </div>
     </div>
   </header>
-  <main>
+  <main class="container">
     <section class="panel welcome">
       <h1>Welcome to BLOXERA</h1>
-      <p>Play games, explore worlds, and create your own experiences.</p>
+      <p class="muted">
+        Play, create, and explore experiences with the community.
+      </p>
       <div class="actions">
-        <a class="button blue" href="#games">Explore Games</a>
-        <a class="button" href="#community">Explore Community</a>
+        <a class="btn btn-primary" href="#games">Explore Games</a>
+        <a class="btn" href="#community">Community</a>
       </div>
     </section>
     <section class="panel" id="games">
-      <h2>Featured Games</h2>
+      <h2>
+        Featured Games
+        <a class="section-link" href="#games">See All</a>
+      </h2>
       <div class="game-grid">
-        <article class="game">
-          <div class="game-image">Game Image</div>
-          <div class="game-info">
+        <article class="game-card">
+          <div class="game-thumb">Game Thumbnail</div>
+          <div class="game-details">
             <a href="#">Coming Soon</a>
             <p>BLOXERA Experience</p>
           </div>
         </article>
-        <article class="game">
-          <div class="game-image">Game Image</div>
-          <div class="game-info">
+        <article class="game-card">
+          <div class="game-thumb">Game Thumbnail</div>
+          <div class="game-details">
             <a href="#">Coming Soon</a>
-            <p>Discover something new</p>
+            <p>Explore new worlds</p>
           </div>
         </article>
-        <article class="game">
-          <div class="game-image">Game Image</div>
-          <div class="game-info">
+        <article class="game-card">
+          <div class="game-thumb">Game Thumbnail</div>
+          <div class="game-details">
             <a href="#">Coming Soon</a>
             <p>Your next adventure</p>
           </div>
         </article>
-        <article class="game">
-          <div class="game-image">Game Image</div>
-          <div class="game-info">
+        <article class="game-card">
+          <div class="game-thumb">Game Thumbnail</div>
+          <div class="game-details">
             <a href="#">Coming Soon</a>
-            <p>Created by the community</p>
+            <p>Made for the community</p>
           </div>
         </article>
       </div>
     </section>
     <section class="panel" id="catalog">
       <h2>Catalog</h2>
-      <p>Avatar items and customization will appear here.</p>
+      <p class="muted">Avatar items and customization.</p>
     </section>
     <section class="panel" id="community">
       <h2>Community</h2>
-      <p>Profiles, friends, and community features are coming soon.</p>
+      <p class="muted">Discover players, profiles, and friends.</p>
     </section>
   </main>
   <footer>
-    BLOXERA · Built for creativity and community
+    BLOXERA · Play. Create. Explore.
   </footer>
 </body>
 </html>
