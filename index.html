@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLOXERA</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e3e3e3;
+      color: #393b3d;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    header {
+      background: #f7f7f7;
+      border-bottom: 1px solid #c7c7c7;
+    }
+    .navbar {
+      max-width: 1100px;
+      margin: auto;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 8px 14px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #393b3d;
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      flex: 1;
+    }
+    a { color: #0055aa; text-decoration: none; }
+    nav a { color: #393b3d; }
+    .account {
+      display: flex;
+      gap: 8px;
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      background: #f7f7f7;
+      color: #393b3d;
+      cursor: pointer;
+    }
+    .button.blue {
+      background: #00a2ff;
+      border-color: #0088d4;
+      color: white;
+    }
+    main {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 14px;
+    }
+    .panel {
+      background: white;
+      border: 1px solid #c7c7c7;
+      border-radius: 3px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    h1 { font-size: 28px; margin: 0 0 10px; }
+    h2 {
+      font-size: 19px;
+      font-weight: normal;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .welcome {
+      text-align: center;
+      padding: 42px 20px;
+    }
+    .welcome p {
+      color: #666;
+      line-height: 1.6;
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .game {
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+    .game-image {
+      height: 110px;
+      background: #d6d6d6;
+      display: grid;
+      place-items: center;
+      color: #777;
+      font-size: 12px;
+    }
+    .game-info { padding: 10px; }
+    .game-info p { color: #777; font-size: 12px; }
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 24px 12px;
+      border-top: 1px solid #ccc;
+      font-size: 12px;
+    }
+    @media (max-width: 650px) {
+      .navbar { flex-wrap: wrap; gap: 12px; }
+      nav { order: 3; flex-basis: 100%; gap: 15px; }
+      .account { margin-left: auto; }
+      .game-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .panel { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a class="logo" href="#">BLOXERA</a>
+      <nav>
+        <a href="#games">Games</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#community">Community</a>
+      </nav>
+      <div class="account">
+        <button class="button" onclick="alert('Login will be connected next.')">Login</button>
+        <button class="button blue" onclick="alert('Sign up will be connected next.')">Sign Up</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="panel welcome">
+      <h1>Welcome to BLOXERA</h1>
+      <p>Play games, explore worlds, and create your own experiences.</p>
+      <div class="actions">
+        <a class="button blue" href="#games">Explore Games</a>
+        <a class="button" href="#community">Explore Community</a>
+      </div>
+    </section>
+    <section class="panel" id="games">
+      <h2>Featured Games</h2>
+      <div class="game-grid">
+        <article class="game">
+          <div class="game-image">Game Image</div>
+          <div class="game-info">
+            <a href="#">Coming Soon</a>
+            <p>BLOXERA Experience</p>
+          </div>
+        </article>
+        <article class="game">
+          <div class="game-image">Game Image</div>
+          <div class="game-info">
+            <a href="#">Coming Soon</a>
+            <p>Discover something new</p>
+          </div>
+        </article>
+        <article class="game">
+          <div class="game-image">Game Image</div>
+          <div class="game-info">
+            <a href="#">Coming Soon</a>
+            <p>Your next adventure</p>
+          </div>
+        </article>
+        <article class="game">
+          <div class="game-image">Game Image</div>
+          <div class="game-info">
+            <a href="#">Coming Soon</a>
+            <p>Created by the community</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="panel" id="catalog">
+      <h2>Catalog</h2>
+      <p>Avatar items and customization will appear here.</p>
+    </section>
+    <section class="panel" id="community">
+      <h2>Community</h2>
+      <p>Profiles, friends, and community features are coming soon.</p>
+    </section>
+  </main>
+  <footer>
+    BLOXERA · Built for creativity and community
+  </footer>
+</body>
+</html>
